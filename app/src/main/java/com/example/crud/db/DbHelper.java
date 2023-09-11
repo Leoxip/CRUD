@@ -33,4 +33,8 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
 
     }
+
+    public static String getTableContactos() {
+        return TABLE_CONTACTOS;
+    }
 }

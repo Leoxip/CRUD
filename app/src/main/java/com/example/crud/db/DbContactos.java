@@ -4,13 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-
 import androidx.annotation.Nullable;
 
-public class dbContactos  extends DbHelper{
+public class DbContactos extends DbHelper{
 
     Context context;
-    public dbContactos(@Nullable Context context) {
+    public DbContactos(@Nullable Context context) {
         super(context);
         this.context = context;
 
@@ -21,15 +20,16 @@ public class dbContactos  extends DbHelper{
 
         try{
             DbHelper dbHelper = new DbHelper(context);
-        SQLiteDatabase db = getWritableDatabase();
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put("nombre", nombre);
-        values.put("telefono", telefono);
-        values.put("correo_electronico", correo_electronico);
-            id = db.insert(TABLE_CONTACTOS, null, values);
+            ContentValues values = new ContentValues();
+            values.put("nombre", nombre);
+            values.put("telefono", telefono);
+            values.put("correo_electronico", correo_electronico);
+
+            id = db.insert(DbHelper.getTableContactos(), null, values);
         } catch (Exception ex){
-            ex.toString();
+            ex.printStackTrace();
         }
         return id;
     }

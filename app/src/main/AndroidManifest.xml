@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CRUD"
         tools:targetApi="31">
-        <activity
-            android:name=".NuevoActivity"
-            android:exported="false" />
+ <activity android:name=".NuevoActivity" ></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
